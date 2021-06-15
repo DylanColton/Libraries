@@ -1,0 +1,8 @@
+printMatrix(double[][] matrix):double[][]
+  Displays the matrix, formatted, in the console
+
+identity(int size):double[][]
+  Checks if the size is valid (between 1 and 10), and returns the corresponding identity matrix
+
+submatrix(double[][] matrix, int row, int col):double[][]
+  Checks if the matrix can be reduced, and if it can, generates a new matrix that removes the specified row and column, assuming the arguments are valid 
