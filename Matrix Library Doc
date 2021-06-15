@@ -5,4 +5,27 @@ identity(int size):double[][]
   Checks if the size is valid (between 1 and 10), and returns the corresponding identity matrix
 
 submatrix(double[][] matrix, int row, int col):double[][]
-  Checks if the matrix can be reduced, and if it can, generates a new matrix that removes the specified row and column, assuming the arguments are valid 
+  Checks if the matrix can be reduced, and if it can, generates a new matrix that removes the specified row and column, assuming the arguments are valid
+  e.g.:
+      (1  2  3)
+  A = (4  5  6), row = 1, col = 0 => submatrix(A, row, col) = (2  3)
+      (7  8  9)                                               (8  9)
+
+addMatrices(double[][] matrix1, double[][] matrix2):double[][]
+  Checks if two matrices can be added toghether, and if they can, returns the matrix of their addition, otherwise returns the identity matrix with matrix.length size
+  
+subtractMatrix(double[][] matrix1, double[][] matrix2):double[][]
+  Checks if two matrices can be subtracted toghether, and if they can, returns the matrix of their subtraction, otherwise returns the identity matrix with matrix.length size
+
+scalarMultiply(double scalar, double[][] matrix):double[][]
+  returns the matrix in the argument, where each element in the matrix has been multiplied by the scalar
+
+matrixMultiply(double[][] matrix1, double[][] matrix2):double[][]
+  Checks if two matrices can be multiplied in the order that they are entered in the argument, and if they can, returns the matrix of their multiplication, otherwise, returns 
+  the identity matrix of matrix1.length size
+
+trace(double[][] matrix):double
+  Returns the trace of a matrix
+
+determinant(double[][] matrix):double
+  Returns the determinant of the matrix
