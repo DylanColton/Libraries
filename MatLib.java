@@ -2,18 +2,6 @@ package libraries;
 
 public class MatLib {
 	/* Make a better formatting */
-	// Returns the identity matrix for a given size (I is always square)
-	public static double[][] identity(int size) {
-		double[][] identity = new double[size][size];
-		for(int i = 0; i < identity.length; i++) {
-			for(int j = 0; j < identity[i].length; j++) {
-				identity[i][j] = 0;
-				if(i == j) { identity[i][j] = 1; }
-			}
-		}
-		return identity;
-	}
-	
 	// Prints the matrix in the argument
 	public static void printMatrix(double[][] matrix) {
 		for(int i = 0; i < matrix.length; i++) {
@@ -24,11 +12,36 @@ public class MatLib {
 		}
 	}
 	
+	// Returns the identity matrix for a given size (I is always square)
+	public static double[][] identity(int size) {
+		if(size < 1 || size > 10) {
+			System.out.println("Invalid size selction");
+			return identity(1);
+		}
+		
+		double[][] identity = new double[size][size];
+		for(int i = 0; i < identity.length; i++) {
+			for(int j = 0; j < identity[i].length; j++) {
+				identity[i][j] = 0;
+				if(i == j) { identity[i][j] = 1; }
+			}
+		}
+		return identity;
+	}
+	
 	// Returns the submatrix of a matrix removing a given row and column
 	public static double[][] submatrix(double[][] matrix, int row, int col) {
 		if(matrix.length == 1 || matrix[0].length == 1) {
 			System.out.println("Cannot reduce the given matrix any further");
 			return identity(matrix.length);
+		}
+		if(row < 0 || row >= matrix.length) {
+			System.out.println("Invalid row selection");
+			return identity(matrix.length);
+		}
+		if(col < 0 || col >= matrix[0].length) {
+			System.out.println("Invalid column selection");
+			return identity(matrix[0].length);
 		}
 		
 		double[][] submat = new double[matrix.length - 1][matrix[0].length - 1];
